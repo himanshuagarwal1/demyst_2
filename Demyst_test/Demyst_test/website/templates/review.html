@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+<h1 align="center">Review Submission</h1>
+
+  <h3> Account Number </h3> <h5>{{ data.get("account") }}</h5> 
+  <br>
+
+<h3> Accounting Provider </h3>  <h5>  {{ data.get("provider") }}</h5>
+<br>
+<h3> Buisness Name  </h3>  <h5>  {{ data.get("buisness") }}</h5>
+
+
+
+<ul class="list-group list-group-flush" >
+    {% for sheet  in data.get("sheet") %}
+    <li class="list-group-item">
+      
+      <h5>Year : {{sheet.get("year")}}</h5>
+      <h5>Month : {{sheet.get("month")}}</h5>
+      <h5>Profit : {{sheet.get("profitOrLoss")}} </h5>
+      <h5>Assets Value : {{sheet.get("assetsValue")}}</h5>
+      
+    </li>
+
+    
+    {% endfor %}
+    <form method="post"> 
+
+        
+        <button type="submit" align = "center" class="btn btn-primary">submit</button>
+        
+    </form>
+</ul>
+
+{% endblock %}
+
+
